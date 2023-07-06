@@ -1,0 +1,38 @@
+Github is popular not only for hosting repositories but also because it’s a great place to host your websites. Best thing about hosting your website on Github? It’s free! Cool eh?
+
+In this article, I’ll show you how to easily publish a create-react-app project on Github.
+Without further ado, let’s get started.
+
+Note: I assume you have basic knowledge on git and Github.
+
+1. Create a Github repository
+First thing you have to do is to create an empty repository on Github. It could have any name you want.
+
+2. The rest happens on the command line
+Run npm run build on your create-react-app project.
+A build folder will be created inside your project.
+Next up, go to package.json and paste this line of code:
+"homepage": "http://username.github.io/myapp" .
+Replace username with your own Github username and myapp with the name of the repository that you’ve just created earlier.
+
+package.json
+3. Add these lines of code to your package.json:
+"predeploy": "npm run build",
+"deploy": "gh-pages -d build"
+and then run npm install --save-dev gh-pages .
+
+You should see these lines of code added to your package.json: "devDependencies": {
+"gh-pages": "^1.1.0"
+}
+
+
+package.json
+4. Lastly, run npm run deploy .
+
+That’s it! Go to the url you’ve provided on the homepage
+(http://username.github.io/myapp ) and you should see your webiste— up and running!
+
+
+src: https://media.giphy.com/media/e07y5SEwFMDm0/giphy.gif
+Note: If you’re having an error, initialize your project with git (if you haven’t) then run git remote add origin git://url-here (replace git://url-here with the git url of the repository you’ve created at the first step).
+Run npm run deploy again and you should be good! 😄
